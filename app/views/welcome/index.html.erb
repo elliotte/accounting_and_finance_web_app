@@ -1,0 +1,119 @@
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'About', "" %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><a href="//www.profitbees.com" target="_blank">ProfitBees</a></p>
+       </div> 
+    </header>
+</article>
+
+<% if user_signed_in? %>
+ 
+	 <section class="layout-container">
+		  <article class="type-system-slab">
+				<div class="nice-in-box-element">
+			  	   <br>
+		             <h3><a href="/welcome/auth_landing">Start Working</a></h3>
+		             <p>Add cashbooks, reconcile your bank, working with your accountant.</p>
+		            <br>
+				</div>
+		  </article>
+	  </section>
+	  <section class="layout-container">
+	     <article class="type-system-slab">
+	  	      <div class="flex-boxes">
+	              <a href="<%= edit_user_registration_path %>" class="flex-box" onclick="">
+	                <img src="<%= asset_path("info1.png") %>" alt="">
+	                <h1 class="flex-title">Edit account</h1>
+	                <p>Edit account settings</p> 
+	              </a>
+	              <a href="<%= destroy_user_session_path %>" data-method="delete" class="flex-box">
+	                <img src="<%= asset_path("trash.png") %>" alt="">
+	                <h1 class="flex-title">Sign Out</h1>
+	                <p>And come back again soon.</p>
+	              </a>
+	          </div>
+	      </article>
+	   </section>
+
+<% else %>
+
+	 <section class="layout-container">
+		  <article class="type-system-slab">
+				<div class="nice-in-box-element">
+				  	
+			  	    <br>
+		            <h3>Why MircoBooks</h3>
+		            <br>
+		            <p>Managing an accounting system can be complex for business owners.  Xero can be feature heavy and too expensive for many businesses.</p>
+		            <p>We offer a better way to manage your business books.</p>
+		            <br>
+
+				</div>
+		  </article>
+	  </section>
+	  <section class="layout-container">
+	     <article class="type-system-slab">
+	  	      	
+	  	      <div class="flex-boxes">
+	              <a href="<%= new_user_session_path %>" class="flex-box" onclick="">
+	                <img src="<%= asset_path("info1.png") %>" alt="">
+	                <h1 class="flex-title">Sign in</h1>
+	                <p>Simple and easy to manage bookkeeping.</p> 
+	              </a>
+	              <a href="<%= new_user_registration_path %>" class="flex-box" onclick="">
+	                <img src="<%= asset_path("info2.png") %>" alt="">
+	                <h1 class="flex-title">Sign up</h1>
+	                <p>It's quick and simple.</p>
+	              </a>
+	          </div>
+
+	      </article>
+	   </section>
+
+<% end %>
+
+<section class="layout-container">
+	  <article class="type-system-slab">
+	  </article>
+</section>
+
+<footer class="footer-welcome-landing" role="contentinfo">
+
+	  <div class="footer-logo">
+	    <img src="<%= asset_path('pb-logo.png') %>" alt="Logo image">
+	  </div>
+	  <article class="type-system-slab">
+	      <div class="footer-links">
+	        <ul>
+	          <li><h3>Content</h3></li>
+	          <li><a href="javascript:void(0)">About</a></li>
+	          <li><a href="javascript:void(0)">Contact</a></li>
+	          <li><a href="javascript:void(0)">Products</a></li>
+	        </ul>
+	        <ul>
+	          <li><h3>Follow Us</h3></li>
+	          <li><a href="javascript:void(0)">Facebook</a></li>
+	          <li><a href="javascript:void(0)">Twitter</a></li>
+	          <li><a href="javascript:void(0)">YouTube</a></li>
+	        </ul>
+	        <ul>
+	          <li><h3>Legal</h3></li>
+	          <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+	          <li><a href="javascript:void(0)">Privacy Policy</a></li>
+	        </ul>
+	      </div>
+	   </article>
+
+	  <hr>
+	  <p>Bookkeeping and adequate control over it, is an applied craft by humans, whom use software to aid their process.  Ergo, no piece of software should be soley relied on to conduct full business reporting duties.  Our software still requires people brainpower.  ProfitBees is provided "as is" and "with all faults." ProfitBees makes no representations or warranties of any kind concerning the accuracy, suitability, lack of viruses, inaccuracies, typographical errors, or other harmful components of this SOFTWARE PRODUCT.</p>
+
+</footer>
+
+
