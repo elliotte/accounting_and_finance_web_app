@@ -1,0 +1,79 @@
+
+$between-hive-box-padding: 5em;
+$hive-box-padding:2em;
+$min-box-height: 10em;
+
+.hives-box {
+  @include transition (all 0.4s ease-in-out);
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  border-right: 1px solid $bee-orange;
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  min-height: 15em;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: $between-hive-box-padding;
+  padding: $hive-box-padding;
+  .hb-container {
+    padding-top: $hive-box-padding * 1.2;
+    padding-bottom: $hive-box-padding * 1.2;
+    @include clearfix;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    clear: both;
+    text-align: center;
+  }
+}
+
+.hb-container {
+  $top-gutter:1em;
+  aside {
+    @include flex(4);
+    min-height: $min-box-height;
+    padding-top: $top-gutter;
+    padding-bottom: $top-gutter;
+    border-right: 1px solid #d8d8d8;
+    overflow: hidden;
+    img {
+      @include size(5.5em);
+      margin-bottom: $top-gutter;
+    }
+  }
+  aside:first-child {
+    border-right:1px solid #FB7D98;
+  }
+  aside:last-child {
+    border-right:0px solid #FB7D98;
+    padding-top: $min-box-height * 0.4;
+  }
+}
+
+.lovely-link-button {
+    border: 1px solid #FFA66F;
+    padding: 1em;
+    border-radius: 1em;
+}
+.lovely-link-button:hover {
+    border: 1px solid #477dca;
+    padding: 1em;
+    border-radius: 1em;
+    color:#FFA66F;
+}
+
+.box-hover:hover {
+    transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -webkit-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -moz-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -o-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -ms-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
+    box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
+}
+

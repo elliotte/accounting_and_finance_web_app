@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 #APP =YAML.load_file('config/application.yml')
-
 describe 'user landing', :type => :feature do
 
     context "new user" do
