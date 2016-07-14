@@ -28,6 +28,7 @@ feature "creating a new ledger" do
     click_button("Log in")
     page.should have_content "Signed in successfully"
   end
+  #doesn't work with JS | works with HTML
   scenario 'ledger #new', js: true do
     click_link("Start Working")
     click_link("New Bank Hive")
