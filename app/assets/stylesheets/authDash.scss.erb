@@ -3,6 +3,11 @@ $between-hive-box-padding: 5em;
 $hive-box-padding:2em;
 $min-box-height: 10em;
 
+article.centered-transparent-container {
+  @include outer-container;
+  text-align: center;
+}
+
 .hives-box {
   @include transition (all 0.4s ease-in-out);
   border-radius: 3px;

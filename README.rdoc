@@ -1,28 +1,32 @@
-== README
+# App Info
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Testing
 
-Things you may want to cover:
+Feature specs:
 
-* Ruby version
+$ landing and signup
+$ landing and login
+$ landing and new ledger
 
-* System dependencies
+Model specs:
 
-* Configuration
+$ user model
+$ ledger model
 
-* Database creation
+### Other stuff
 
-* Database initialization
+Add this line to your application's Gemfile:
 
-* How to run the test suite
+```ruby
+gem 'google-api-client', '0.9.pre3'
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+And then execute:
 
-* ...
+    $ bundle
 
+Or install it yourself as:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    $ gem install google-api-client --pre
+

@@ -1,0 +1,19 @@
+<article class="type-system-slab">
+      <h3>Create a new hive</h3>
+      <p> ( then import transactions exported to csv from your bank account ) </p>
+      <%= form_for @ledger do |f| %>
+          <table class="table-minimal">
+              <tbody>
+                    <tr>
+                      <td class="lovely-pink"><%= f.label :user_tag %></td>
+                      <td> <%= f.text_field :user_tag %></td>
+                    </tr>
+                    <%= f.hidden_field :type, value: "Ledger" %>
+                    <tr>
+                      <td class="button-style"><%= f.submit %></td>
+                      <td></td>
+                    </tr>
+                </tbody>
+          </table>
+      <% end %>
+</article>
