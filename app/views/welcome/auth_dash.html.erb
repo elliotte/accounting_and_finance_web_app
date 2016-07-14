@@ -22,7 +22,7 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-  <!-- FONT ARTICLE WRAPPER -->
+    <!-- FONT ARTICLE WRAPPER -->
     <!-- microBooks DISPLAY -->
     <div class="hives-box nice-display">
       <div class="hb-container">
@@ -30,16 +30,15 @@
           <%= image_tag('pb-logo.png') %>
           <p>Cash Hives</p>
         </aside>
+        <% @ledgers.each do | ledger | %>
         <aside class="box-hover">
-          <p><span><%= truncate("Honey Cash Hives", length: 40) %></span></p>
-          <p class="date">Coming Soon</p>
-          <p class="author">ProfitBees</p>
+          <a href="<%= ledger_path(ledger) %>">
+            <p><span>Open:  <%= truncate(ledger.title, length: 15) %></span></p>
+            <p class="date"><%= truncate(ledger.user_tag, length: 40) %></p>
+            <p class="author"><%= time_ago_in_words(ledger.updated_at) %> ago</p>
+          </a>
         </aside>
-        <aside class="box-hover">
-          <p><span><%= truncate("Honey Cash Hives", length: 40) %></span></p>
-          <p class="date">Coming Soon</p>
-          <p class="author">ProfitBees</p>
-        </aside>
+        <% end %>
         <aside class="last-box">
             <a href="javascript:void(0)" class="lovely-link-button">View All</a>
         </aside>

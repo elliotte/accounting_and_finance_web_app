@@ -17,10 +17,12 @@ class LedgersController < ApplicationController
 	  end
   end
 
-  def show; end
+  def show
+    find_ledger
+  end
 
   def ledger_params
-     params.require(:ledger).permit(:user_tag, :type, :opening_balance) unless params[:ledger].blank?
+     params.require(:ledger).permit(:user_tag, :title, :type, :opening_balance) unless params[:ledger].blank?
   end
 
   def find_ledger

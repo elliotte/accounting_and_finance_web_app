@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
 
   def index; end
 
-  def auth_dash; end
+  def auth_dash 
+  	@ledgers = current_user.ledgers.last(2).reverse
+  end
 
 end

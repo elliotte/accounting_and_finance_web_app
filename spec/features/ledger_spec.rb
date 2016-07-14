@@ -1,36 +1,21 @@
 require 'rails_helper'
 
-#APP =YAML.load_file('config/application.yml')
-# describe 'ledger CRUD features |', :type => :feature do
-#     before do 
-#       @current_user = FactoryGirl.create(:user)
-#       visit root_path
-#       login
-#     end
-#     context "creation |" do
-#       it 'should add a new user ledger', js: true do
-#         click_link("Start Working")
-#         click_link("New Bank Hive")
-#         fill_in("ledger_user_tag", with: "what-a-description")
-#         click_button("Create Ledger")
-#         page.should have_content "Successfully created ledger"
-#       end
-#     end
-# end
-
-feature "creating a new ledger" do
-  before do 
-    @current_user = FactoryGirl.create(:user)
-    visit root_path
-    first("a[href='/users/sign_in']").click()
-    fill_in("user_email", with: @current_user.email)
-    fill_in("user_password", with: "what-a-password")
-    click_button("Log in")
-    page.should have_content "Signed in successfully"
+feature "user ledgers" do
+  before do
+    setup_db_and_session_mock
+    visit auth_dash_welcome_index_path
   end
-  #doesn't work with JS | works with HTML
-  scenario 'ledger #new', js: true do
-    click_link("Start Working")
+  scenario 'create #new', js: true do
     click_link("New Bank Hive")
+    fill_in("ledger_user_tag", with: "yes-lad")
+    click_button("Create Ledger")
+    page.should have_content "Ledger successfully added"
+    expect(@current_user.ledgers.count).to eq 1
   end
+end
+
+def setup_db_and_session_mock
+    ApplicationController.any_instance.stub(:authenticate_user!).and_return true 
+    @current_user = FactoryGirl.create(:user)
+    ApplicationController.any_instance.stub(:current_user).and_return(@current_user)
 end

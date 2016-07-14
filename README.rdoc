@@ -4,29 +4,28 @@
 
 Feature specs:
 
-$ landing and signup
-$ landing and login
-$ landing and new ledger
+	$ landing and signup
+
+	$ landing and login
+
+	$ landing and new ledger
 
 Model specs:
 
-$ user model
-$ ledger model
+	$ user model
+
+	$ ledger model
 
 ### Other stuff
 
-Add this line to your application's Gemfile:
+..
 
-```ruby
-gem 'google-api-client', '0.9.pre3'
 
-```
+Notes:
 
-And then execute:
+    $ xx
 
-    $ bundle
+Other notes:
 
-Or install it yourself as:
-
-    $ gem install google-api-client --pre
+    $ xx
 

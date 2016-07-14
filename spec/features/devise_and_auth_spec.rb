@@ -12,8 +12,8 @@ describe 'user landing', :type => :feature do
           end
           it 'should be allowed to sign up' do
             first("a[href='/users/sign_up']").click()
-            fill_in("user_email", with: "a@a.com")
-            fill_in("user_email", with: "a@a.com")
+            fill_in("user_email", with: "c@a.com")
+            fill_in("user_email", with: "c@a.com")
             fill_in("user_password", with: "what-a-password")
             fill_in("user_password_confirmation", with: "what-a-password")
             click_button("Sign up")
