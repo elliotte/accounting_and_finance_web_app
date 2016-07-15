@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708135504) do
+ActiveRecord::Schema.define(version: 20160715103249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,34 @@ ActiveRecord::Schema.define(version: 20160708135504) do
   end
 
   add_index "ledgers", ["user_id"], name: "index_ledgers_on_user_id", using: :btree
+
+  create_table "transaction", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "ledger_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount"
+    t.decimal  "tax",              default: 0.0
+    t.datetime "acc_date"
+    t.string   "bank_description"
+    t.string   "type"
+    t.string   "tb_mapping"
+  end
+
+  add_index "transaction", ["ledger_id"], name: "index_transaction_on_ledger_id", using: :btree
+
+  create_table "transactions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "ledger_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount"
+    t.decimal  "tax",              default: 0.0
+    t.datetime "acc_date"
+    t.string   "bank_description"
+    t.string   "type"
+    t.string   "tb_mapping"
+  end
+
+  add_index "transactions", ["ledger_id"], name: "index_transactions_on_ledger_id", using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

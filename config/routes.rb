@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :ledgers
+  resources :ledgers do 
+    member do
+      get :import_trns
+      post :persist_csv_trns
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

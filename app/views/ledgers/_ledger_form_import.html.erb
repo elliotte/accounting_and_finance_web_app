@@ -1,0 +1,18 @@
+<article class="type-system-slab">
+      <h3>Upload transactions</h3>
+      <p> using your CSV file exported from your bank account </p>
+      <%= form_tag persist_csv_trns_ledger_path(@ledger), multipart: true do %>
+          <table class="table-minimal">
+              <tbody>
+                    <tr>
+                      <td></td>
+                      <td><%= file_field_tag :file %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td> <%= submit_tag "Import CSV" %></td>
+                    </tr>
+                </tbody>
+          </table>
+      <% end %>
+</article>

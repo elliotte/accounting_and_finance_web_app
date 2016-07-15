@@ -17,6 +17,12 @@ class LedgersController < ApplicationController
 	  end
   end
 
+  def import_trns
+    find_ledger
+  end
+
+  def persist_csv_trns; end
+
   def show
     find_ledger
   end
