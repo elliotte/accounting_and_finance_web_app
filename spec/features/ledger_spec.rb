@@ -14,6 +14,7 @@ feature "user ledgers" do
     click_link("Import CSV")
     attach_file("file", Rails.root + "spec/fixtures/test_trns.csv")
     click_button("Import CSV")
+    page.should have_content "Transactions imported successfully"
   end
 end
 
