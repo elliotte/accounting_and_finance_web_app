@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     member do
       get :import_trns
       post :persist_csv_trns
+      get :reconcile_transactions
     end
   end
 

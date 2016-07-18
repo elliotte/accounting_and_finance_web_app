@@ -1,5 +1,7 @@
 class LedgersController < ApplicationController
 
+  before_action :find_ledger, except: [:new, :create]
+
   def new
      @ledger = current_user.ledgers.new
      respond_to do |format|
@@ -16,12 +18,9 @@ class LedgersController < ApplicationController
 	  end
   end
 
-  def import_trns
-    find_ledger
-  end
+  def import_trns; end
 
   def persist_csv_trns 
-    find_ledger
     input = AppImportService.new(@ledger, params[:file].tempfile)
     begin
       input.write_to_db
@@ -31,8 +30,10 @@ class LedgersController < ApplicationController
     end
   end
 
-  def show
-    find_ledger
+  def show; end
+
+  def reconcile_transactions
+    @transactions = @ledger.transactions
   end
 
   def ledger_params

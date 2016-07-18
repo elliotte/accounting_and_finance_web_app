@@ -1,0 +1,41 @@
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_dash"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><a href="//www.profitbees.com" target="_blank">ProfitBees</a></p>
+       </div> 
+    </header>
+</article>
+
+<section class="layout-container">
+  <article class="type-system-slab centered-transparent-container">
+      <h1>Reconcilation manager</h2>
+  </article>
+  <br><br><br>
+</section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        <div class="grid-items-lines">
+          <% @transactions.each do |transaction| %>
+            <% id = transaction.id %>
+            <a href="javascript:void(0)" class="grid-item" data-id="<%= id %>">
+              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
+              <h1><span style="color:#F9B233"><%= transaction.amount.to_f.round(2) %></span> | <%= transaction.acc_date.strftime("%d/%m/%Y") %></h1>
+              <p><%= transaction.bank_description %></p>
+            </a>
+          <% end %>
+          <div class="right-cover"></div>
+          <div class="bottom-cover"></div>
+        </div>
+  </article>
+  <br><br><br>
+</section>
+
+

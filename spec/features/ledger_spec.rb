@@ -5,11 +5,7 @@ feature "user ledgers" do
     setup_db_and_session_mock
     visit auth_dash_welcome_index_path
   end
-  # scenario 'create #new', js: true do
-  #   create_user_ledger
-  #   expect(@current_user.ledgers.count).to eq 1
-  # end
-  scenario "import csv trns", js: true do
+  scenario "import csv transactions", js: true do
     create_user_ledger
     click_link("Import CSV")
     attach_file("file", Rails.root + "spec/fixtures/test_trns.csv")

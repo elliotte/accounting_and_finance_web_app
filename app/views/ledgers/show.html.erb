@@ -29,7 +29,7 @@
                  <br><br>
 
                  <div class="cards">
-                      <div class="card">
+                      <div class="card with-link" data-href="<%= reconcile_transactions_ledger_path(@ledger) %>">
                         <div class="card-image">
                           <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
                         </div>
@@ -71,4 +71,10 @@
       </article>
 </section>
 
+<script>
+  $('.with-link').on('click', function() {
+    var path =$(this).data('href')
+    window.location = path
+  })
+</script>
 

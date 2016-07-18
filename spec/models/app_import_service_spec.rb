@@ -16,7 +16,6 @@ describe AppImportService do
         expect { AppImportService.new(ledger, csv_file ) }.to_not raise_error
       end
     end
-
     context "service methods" do
       it 'can read the a file' do
       	expect(import_service.read_file).to be_a CSV
