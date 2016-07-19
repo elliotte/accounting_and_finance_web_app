@@ -33,7 +33,7 @@ class LedgersController < ApplicationController
   def show; end
 
   def reconcile_transactions
-    @transactions = @ledger.transactions
+    @transactions = @ledger.transactions.order("acc_date DESC")
   end
 
   def ledger_params
