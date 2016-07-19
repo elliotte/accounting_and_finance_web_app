@@ -18,7 +18,11 @@
 	        <%= f.label :tb_mapping %><br><br>
 	        <% option = lambda { @transaction.tb_mapping || "None given" } %>
 	        <%= f.select :tb_mapping, options_for_select( Tags.list, {selected: option.call }) %>
-	      </span>
+	      </span><br>
+	      <p>
+	        <%= f.label :reconciled %><br>
+	        <%= f.check_box :reconciled %>
+	      </p>
 	      <%= f.submit %>
 	<% end %>
 </article>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719121501) do
+ActiveRecord::Schema.define(version: 20160719142843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160719121501) do
     t.string   "bank_description"
     t.string   "type"
     t.string   "tb_mapping"
+    t.boolean  "reconciled",       default: false
   end
 
   add_index "transactions", ["ledger_id"], name: "index_transactions_on_ledger_id", using: :btree

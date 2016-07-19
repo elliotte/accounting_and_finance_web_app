@@ -1,1 +1,15 @@
-$('#bg-screen-for-modal').find('section').empty().append("WOWOWOWOWOW") 
+$('#bg-screen-for-modal').removeClass('open')
+
+var transaction_card = $('#' + '<%= @transaction.id %>' );
+//$(transaction_card).remove();
+var ID = '<%= @transaction.id %>'
+$(transaction_card).hide();
+// $(transaction_card).addClass('reconciled');
+
+$('#updated-trns-container').show();
+
+$('#updated-trns-container').find('.grid-items-lines').append(
+	"<%= j(render partial: 'transactions/display_card', locals: { transaction: @transaction } ) %>"
+);
+
+

@@ -20,23 +20,22 @@
   <br><br><br>
 </section>
 
+<section id="updated-trns-container" class="layout-container" style="display:none;">
+  <article class="type-system-slab">
+      <h3>Updated transactions</h3>
+      <div class="grid-items-lines">
+      </div>
+  </article>
+  <br><br><br>
+</section>
+
 <section class="layout-container">
   <article class="type-system-slab">
         <div class="grid-items-lines">
           <% @transactions.each do |transaction| %>
-            <% id = transaction.id %>
-            <a href="<%= edit_transaction_path(id) %>" class="grid-item" data-remote="true">
-              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
-              <h1><span style="color:#F9B233">
-                <% if transaction.type == "Debit" %>
-                  <%= transaction.amount.to_f.round(2) %></span> | 
-                <% else %>
-                  - <%= transaction.amount.to_f.round(2) %></span> | 
-                <% end %>
-                <%= transaction.tax.to_f.round(2) %></h1>
-              <p style="font-size:90%;"><%= truncate(transaction.bank_description, length: 60) %></p>
-              <h4><%= transaction.acc_date.strftime("%d/%m/%Y") %></h4>
-            </a>
+
+             <%= render partial: 'transactions/display_card', locals: { transaction: transaction } %>
+          
           <% end %>
           <div class="right-cover"></div>
           <div class="bottom-cover"></div>
