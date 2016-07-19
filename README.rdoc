@@ -8,7 +8,9 @@ Feature specs:
 
 	$ landing and login
 
-	$ landing and new ledger
+	$ new ledger and import transactions
+
+	$ new | import | ledger manager
 
 Model specs:
 

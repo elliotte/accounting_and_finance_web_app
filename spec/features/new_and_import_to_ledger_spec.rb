@@ -5,7 +5,7 @@ feature "user ledgers" do
     setup_db_and_session_mock
     visit auth_dash_welcome_index_path
   end
-  scenario "import csv transactions", js: true do
+  scenario "create ledger and import csv transactions", js: true do
     create_user_ledger
     click_link("Import CSV")
     attach_file("file", Rails.root + "spec/fixtures/test_trns.csv")
