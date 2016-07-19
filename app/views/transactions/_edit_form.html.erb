@@ -1,0 +1,11 @@
+<%= form_for :transaction, url: transaction_path(@transaction),remote: true, method: 'put' do |f| %>
+	  <p>
+        <%= f.label :bank_description %><br>
+        <%= f.text_area :bank_description %>
+      </p>
+       <p>
+        <%= f.label :amount %><br>
+        <%= f.text_field :amount %>
+      </p>
+      <%= f.submit %>
+<% end %>

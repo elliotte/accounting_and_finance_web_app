@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :transactions, only: [:edit, :update]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
