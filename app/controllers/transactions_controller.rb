@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
 
 
   def edit_trn_params
-  	params.require(:transaction).permit(:bank_description, :amount, :tax)
+  	params.require(:transaction).permit(:bank_description, :amount, :tax, :tb_mapping)
   end
 
 

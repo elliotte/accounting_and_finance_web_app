@@ -1,11 +1,24 @@
-<%= form_for :transaction, url: transaction_path(@transaction),remote: true, method: 'put' do |f| %>
-	  <p>
-        <%= f.label :bank_description %><br>
-        <%= f.text_area :bank_description %>
-      </p>
-       <p>
-        <%= f.label :amount %><br>
-        <%= f.text_field :amount %>
-      </p>
-      <%= f.submit %>
-<% end %>
+<article class="type-system-slab edit-trans-form-display">
+	<%= form_for :transaction, url: transaction_path(@transaction),remote: true, method: 'put' do |f| %>
+		  <aside>
+	        <%= f.label :bank_description %><br>
+	        <%= f.text_area :bank_description %>
+	      </aside>
+	      <br><br>
+	      <p>
+	        <%= f.label :amount %><br>
+	        <%= f.text_field :amount %>
+	      </p>
+	      <p>
+	        <%= f.label :tax %><br>
+	        <%= f.text_field :tax %>
+	      </p>
+	      <br>
+	      <span>
+	        <%= f.label :tb_mapping %><br><br>
+	        <% option = lambda { @transaction.tb_mapping || "None given" } %>
+	        <%= f.select :tb_mapping, options_for_select( Tags.list, {selected: option.call }) %>
+	      </span>
+	      <%= f.submit %>
+	<% end %>
+</article>
