@@ -8,7 +8,7 @@
           <a href="/welcome/auth_dash"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
        </div>  
        <div>  
-          <p><a href="//www.profitbees.com" target="_blank">ProfitBees</a></p>
+          <p><a href="<%= ledgers_path %>">All hives</a></p>
        </div> 
     </header>
 </article>
@@ -32,10 +32,18 @@
 <section class="layout-container">
   <article class="type-system-slab">
         <div class="grid-items-lines">
-          <% @transactions.each do |transaction| %>
 
-             <%= render partial: 'transactions/display_card', locals: { transaction: transaction } %>
-          
+          <% if @transactions.count > 0 %>
+            <% @transactions.each do |transaction| %>
+               <%= render partial: 'transactions/display_card', locals: { transaction: transaction } %>
+            <% end %>
+          <% else %>
+              <a href="<%= import_trns_ledger_path(@ledger) %>" class="grid-item" data-remote="true">
+                <h1><span style="color:#F9B233">
+                  No transactions in cash hive</h1>
+                <p style="font-size:90%;">Click to import CSV transactions from your bank account</p>
+                <h4>ProfitBees</h4>
+              </a>
           <% end %>
           <div class="right-cover"></div>
           <div class="bottom-cover"></div>

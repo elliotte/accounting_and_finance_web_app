@@ -10,7 +10,7 @@ Feature specs:
 
 	$ new ledger and import transactions
 
-	$ new | import | ledger manager
+	$ new | import | ledger manager | update transaction
 
 Model specs:
 
