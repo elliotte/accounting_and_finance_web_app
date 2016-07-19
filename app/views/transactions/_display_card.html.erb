@@ -5,7 +5,14 @@
   <% else %>
       <a id="<%= id %>" href="<%= edit_transaction_path(id) %>" class="grid-item" data-remote="true">
   <% end %>
-        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
+
+  <% if transaction.type == "Debit" %>
+        <% type = "Receipt" %>
+        <img src="<%= asset_path("money-in.png") %>" alt="">
+  <% else %>
+        <% type = "Payment" %>
+        <img src="<%= asset_path("money-out.png") %>" alt="">
+  <% end %>
         <h1><span style="color:#F9B233">
           <% if transaction.type == "Debit" %>
             <%= transaction.amount.to_f.round(2) %></span> | 
@@ -14,5 +21,5 @@
           <% end %>
           <%= transaction.tax.to_f.round(2) %></h1>
         <p style="font-size:90%;"><%= truncate(transaction.bank_description, length: 60) %></p>
-        <h4><%= transaction.acc_date.strftime("%d/%m/%Y") %></h4>
+        <h4><%= transaction.acc_date.strftime("%d/%m/%Y") %> | <%= type %></h4>
       </a>
