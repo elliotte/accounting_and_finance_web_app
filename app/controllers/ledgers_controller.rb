@@ -1,6 +1,10 @@
 class LedgersController < ApplicationController
 
-  before_action :find_ledger, except: [:new, :create]
+  before_action :find_ledger, except: [:index, :new, :create]
+
+  def index
+    @ledgers = current_user.ledgers.order('created_at DESC')
+  end
 
   def new
      @ledger = current_user.ledgers.new

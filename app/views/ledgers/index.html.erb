@@ -1,0 +1,47 @@
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_dash"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><a href="//www.profitbees.com" target="_blank">ProfitBees</a></p>
+       </div> 
+    </header>
+</article>
+
+<section class="layout-container">
+  <article class="type-system-slab centered-transparent-container">
+      <h1>All your cash hives</h2>
+  </article>
+  <br><br><br>
+</section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        <div class="grid-items-lines">
+          <% @ledgers.each do |ledger| %>
+
+              <a href="<%= ledger_path(ledger) %>" class="grid-item">
+                  <img src="<%= asset_path("pb-logo.png") %>" alt="">
+                  <h1>
+                    <span style="color:#F9B233">
+                      <%= ledger.title || "No title given" %>
+                    </span>
+                   </h1>
+                  <p style="font-size:90%;"><%= ledger.user_tag || "No tag given" %></p>
+                  <h4> <span style="color:#333"> Trn Count:  <%= ledger.transactions.count %> </span>| <%= time_ago_in_words(ledger.updated_at) %> ago  </h4>
+              </a>
+          
+          <% end %>
+          <div class="right-cover"></div>
+          <div class="bottom-cover"></div>
+        </div>
+  </article>
+  <br><br><br>
+</section>
+
+

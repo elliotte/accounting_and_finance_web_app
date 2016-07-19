@@ -6,11 +6,11 @@
               <tbody>
                     <tr>
                       <td><%= f.label :title %></td>
-                      <td> <%= f.text_field :title %></td>
+                      <td> <%= f.text_field :title, placeholder: "e.g. 30 days Jun-16" %></td>
                     </tr>
                     <tr>
                       <td><%= f.label :user_tag %></td>
-                      <td> <%= f.text_field :user_tag %></td>
+                      <td> <%= f.text_field :user_tag,  placeholder: "e.g. Cash ins outs July" %></td>
                     </tr>
                     <%= f.hidden_field :type, value: "Ledger" %>
                     <tr>
@@ -20,4 +20,8 @@
                 </tbody>
           </table>
       <% end %>
+</article>
+<br><br>
+<article class="type-system-slab">
+  <h3 style="font-size:80%;">We recommend using the period for which the transactions cover for your ledger title e.g. 31 days for July-16 </h3>
 </article>
