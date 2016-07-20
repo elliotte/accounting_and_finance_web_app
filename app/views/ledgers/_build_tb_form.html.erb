@@ -5,16 +5,20 @@
 <br><br>
 
 <div class="grid-items-lines">
-		<% @ledger_details.each do |ledger| %>
-			 <a href="javascript:void(0);" class="grid-item tb-select" data-ledger-id="<%= ledger.id %>">
-	                <h1><span style="color:#F9B233">
-	                  <%= ledger.title || "No-title-given" %>
-	                </h1>
-	                <p style="font-size:90%;">
-	                	<%= ledger.user_tag %></p>
-	                <h4>ProfitBees</h4>
-	         </a>
-		<% end %>
+	<% @ledger_details.each do |ledger| %>
+		 <a href="javascript:void(0);" class="grid-item tb-select" data-ledger-id="<%= ledger.id %>">
+		 	<article class="type-system-slab">
+                <h1><span style="color:#F9B233">
+                	<%#= ledger.transactions.count %>
+                  </span>
+                </h1>
+                <p style="font-size:90%;">
+                	<%= ledger.title || "No-title-given" %>
+                </p>
+                <h3 style="font-size:80%;"> <%= ledger.user_tag %>  </h3>
+            </article>
+         </a>
+	<% end %>
 </div>
 
 <script>

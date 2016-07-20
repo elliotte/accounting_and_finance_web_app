@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :ledger do
     user_tag "UserParentLedger"
     type 'CashLedger'
+    title 'testTitle'
   end
   # factory :cash_ledger, class: CashLedger, parent: :ledger do
   # 	user_tag "Test CashLedger"
