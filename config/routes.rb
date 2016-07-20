@@ -18,6 +18,9 @@ Rails.application.routes.draw do
       post :persist_csv_trns
       get :reconcile_transactions
     end
+    collection do 
+      get :create_tb_form
+    end
   end
 
   resources :transactions, only: [:edit, :update]

@@ -1,6 +1,6 @@
 class LedgersController < ApplicationController
 
-  before_action :find_ledger, except: [:index, :new, :create]
+  before_action :find_ledger, except: [:index, :new, :create, :create_tb_form]
 
   def index
     @ledgers = current_user.ledgers.order('created_at DESC')
@@ -38,6 +38,10 @@ class LedgersController < ApplicationController
 
   def reconcile_transactions
     @transactions = @ledger.transactions.order("acc_date DESC")
+  end
+
+  def create_tb_form
+
   end
 
   def ledger_params

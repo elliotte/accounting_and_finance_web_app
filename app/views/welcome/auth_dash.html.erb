@@ -49,7 +49,67 @@
 
 <section class="layout-container">
       <article class="type-system-slab">
+            <div class="nice-in-box-element">
+
+                 <br><br>
+                 <h3> Useful tasks </h3>
+                 <br><br>
+
+                 <div class="cards">
+
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
+                        </div>
+                        <div class="card-header">
+                          Compile a tax return
+                        </div>
+                        <div class="card-copy">
+                          <p>Produce a VAT/tax paid and owed for a period by choosing multiple cash hives</p>
+                        </div>
+                      </div>
+                       <div class="card" data-href="<% %>">
+                      </div>
+
+                      <div class="card with-link" data-href="<%= create_tb_form_ledgers_path %>">
+                        <div class="card-image">
+                          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
+                        </div>
+                        <div class="card-header">
+                          Compile a Trial Balance
+                        </div>
+                        <div class="card-copy">
+                          <p>Load in multiple cash hives to produce a double entry general ledger.</p>
+                        </div>
+                      </div>
+                     
+                  </div>
+                  <!-- END OF CARDS -->
+             </div>
+             <!-- END OF NICE BOX ELEMENT -->
       </article>
 </section>
+
+<section class="layout-container">
+      <article class="type-system-slab">
+         - To Do ( show page data grid and 1 graph )<br>
+         - trial balance ledger select and load TB
+      </article>
+</section>
+
+<script>
+  $('.with-link').on('click', function() {
+    
+    var path =$(this).data('href')
+    $.ajax({
+      url: path,
+      type: 'GET',
+      success: function(response){
+        console.log(response);
+      }
+    })
+
+  })
+</script>
 
 
