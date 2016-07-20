@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     collection do 
       get :create_tb_form
+      get :generate_user_tb
     end
   end
 

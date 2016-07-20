@@ -1,6 +1,6 @@
 class LedgersController < ApplicationController
 
-  before_action :find_ledger, except: [:index, :new, :create, :create_tb_form]
+  before_action :find_ledger, except: [:index, :new, :create, :create_tb_form, :generate_user_tb]
 
   def index
     @ledgers = current_user.ledgers.order('created_at DESC')
@@ -41,7 +41,14 @@ class LedgersController < ApplicationController
   end
 
   def create_tb_form
+    @ledger_details = current_user.ledgers.select('id, user_tag, title').limit(10)
+  end
 
+  def generate_user_tb
+    @ledger_ids = params[:data]
+     #next step should be..
+     #@data = TrialBalance.new(@ledger_ids)
+     #to send as download csv
   end
 
   def ledger_params

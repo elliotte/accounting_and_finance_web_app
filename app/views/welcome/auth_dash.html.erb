@@ -98,17 +98,16 @@
 </section>
 
 <script>
+  // LISTENTER FOR USEFUL TASKS CARDS
   $('.with-link').on('click', function() {
-    
-    var path =$(this).data('href')
-    $.ajax({
-      url: path,
-      type: 'GET',
-      success: function(response){
-        console.log(response);
-      }
-    })
-
+      var path = $(this).data('href')
+      $.ajax({
+        url: path,
+        type: 'GET',
+        success: function(response){
+          console.log(response);
+        }
+      })
   })
 </script>
 

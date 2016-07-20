@@ -1,0 +1,26 @@
+
+// USED TO PREPARE A TB FROM AUTH DASH PAGE USEFUL TASK CARD
+function compileTBFromModal() {
+	console.log('aojsndaksnd')
+
+	ids = []
+	$.each($('.tb-include'), function(i, ledger) {
+		//console.log($(trialBalance).data('ledger-id'))
+		ids.push($(ledger).data('ledger-id'))
+	})
+	var route = "/ledgers/generate_user_tb"
+	var data = ids;
+
+	fireRequest(route, data);
+}
+function fireRequest(url, data) {
+	console.log(data)
+	$.ajax({
+	    url: url,
+	    type: "GET",
+	    data: { data : data } ,
+	    success: function(resp){
+	      console.log('AJAX SUCCESS')
+	    }          
+	})
+}

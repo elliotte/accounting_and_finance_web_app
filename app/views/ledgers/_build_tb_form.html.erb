@@ -1,1 +1,29 @@
-</p>HelloFORM</p>
+<article class="type-system-slab centered-transparent-container">
+    <a class="lovely-link-button" href="javascript:void(0);" onclick="compileTBFromModal();">GenerateTB</a>
+</article>
+
+<br><br>
+
+<div class="grid-items-lines">
+		<% @ledger_details.each do |ledger| %>
+			 <a href="javascript:void(0);" class="grid-item tb-select" data-ledger-id="<%= ledger.id %>">
+	                <h1><span style="color:#F9B233">
+	                  <%= ledger.title || "No-title-given" %>
+	                </h1>
+	                <p style="font-size:90%;">
+	                	<%= ledger.user_tag %></p>
+	                <h4>ProfitBees</h4>
+	         </a>
+		<% end %>
+</div>
+
+<script>
+	//LISTENTER TO ADD SELECTED CLASS FOR INCLUDING IN TB COMPILE
+	$('.tb-select').on('click', function() {
+		if ( $(this).hasClass('tb-include') ) {
+			$(this).removeClass('tb-include');
+		} else {
+			$(this).addClass('tb-include');
+		};
+	})
+</script>
