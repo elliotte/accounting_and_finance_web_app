@@ -44,13 +44,6 @@ class LedgersController < ApplicationController
     @ledger_details = current_user.ledgers.select('id, user_tag, title').limit(10)
   end
 
-  def generate_user_tb
-    @ledger_ids = params[:data]
-     #next step should be..
-     #@data = TrialBalance.new(@ledger_ids)
-     #to send as download csv
-  end
-
   def ledger_params
      params.require(:ledger).permit(:user_tag, :title, :type, :opening_balance) unless params[:ledger].blank?
   end

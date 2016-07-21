@@ -8,7 +8,7 @@ function compileTBFromModal() {
 		//console.log($(trialBalance).data('ledger-id'))
 		ids.push($(ledger).data('ledger-id'))
 	})
-	var route = "/ledgers/generate_user_tb"
+	var route = "/trial_balances"
 	var data = ids;
 
 	fireRequest(route, data);
@@ -17,7 +17,7 @@ function fireRequest(url, data) {
 	console.log(data)
 	$.ajax({
 	    url: url,
-	    type: "GET",
+	    type: "POST",
 	    data: { data : data } ,
 	    success: function(resp){
 	      console.log('AJAX SUCCESS')

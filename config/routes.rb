@@ -20,11 +20,12 @@ Rails.application.routes.draw do
     end
     collection do 
       get :create_tb_form
-      get :generate_user_tb
     end
   end
 
   resources :transactions, only: [:edit, :update]
+
+  resources :trial_balances, only: [:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
