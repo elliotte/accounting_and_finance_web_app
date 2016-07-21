@@ -5,20 +5,39 @@
 <br><br>
 
 <div class="grid-items-lines">
-	<% @ledger_details.each do |ledger| %>
-		 <a href="javascript:void(0);" class="grid-item tb-select" data-ledger-id="<%= ledger.id %>">
+
+	<% if @ledger_details.count > 0 %>
+		<% @ledger_details.each do |ledger| %>
+			<a href="javascript:void(0);" class="grid-item tb-select" data-ledger-id="<%= ledger.id %>">
+			 	<img src="<%= asset_path("pb-logo-2.png") %>" alt="" style="border-radius:15px;">
+			 	<article class="type-system-slab">
+	                <h1><span style="color:#F9B233">
+	                	<%#= ledger.transactions.count %>
+	                  </span>
+	                </h1>
+	                <p style="font-size:90%;">
+	                	<%= ledger.title || "No-title-given" %>
+	                </p>
+	                <h3 style="font-size:80%;"> <%= ledger.user_tag %>  </h3>
+	            </article>
+	         </a>
+		<% end %>
+	<% else %>
+	   <a href="javascript:void(0);" class="grid-item">
+		 	<img src="<%= asset_path("pb-logo-2.png") %>" alt="" style="border-radius:15px;">
 		 	<article class="type-system-slab">
-                <h1><span style="color:#F9B233">
-                	<%#= ledger.transactions.count %>
-                  </span>
-                </h1>
-                <p style="font-size:90%;">
-                	<%= ledger.title || "No-title-given" %>
-                </p>
-                <h3 style="font-size:80%;"> <%= ledger.user_tag %>  </h3>
-            </article>
-         </a>
+	            <h1><span style="color:#F9B233">
+	            	You have no cash hives
+	              </span>
+	            </h1>
+	            <p style="font-size:90%;">
+	            	You need to create some
+	            </p>
+	            <h3 style="font-size:80%;"> ProfitBees  </h3>
+	        </article>
+       </a>
 	<% end %>
+	
 </div>
 
 <script>
