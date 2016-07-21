@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :transactions, only: [:edit, :update]
 
-  resources :trial_balances, only: [:create]
+  resources :trial_balances, only: [:create, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
