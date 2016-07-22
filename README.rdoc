@@ -31,3 +31,8 @@ Other notes:
 
     $ xx
 
+Production notes:
+
+    $ heroku pg:psql
+    
+Had to create uuid extension in DB.
