@@ -24,28 +24,43 @@
 <section class="layout-container">
       <article class="type-system-slab">
 
-          <% @data.each do |group| %>
+          <% if @data.empty? %>
+               <div class="trial-balance-option">
+                        <img data-tb-uuid="<% %>" src="<%= asset_path('pb-logo-2.png') %>" class="view-tb">
+                        <h3>You have no TBs</h3>
+                        <div class="dropdown">
+                          <div class="dropdown-container">
+                            <p class="dropdown-description">None</p>
+                            <p class="dropdown-button">here</p>
+                            <ul class="dropdown-menu dropdown-select">
+                            </ul>
+                          </div>
+                        </div>
+                </div>
+          <% else %>
+              <% @data.each do |group| %>
 
-              <div class="trial-balance-option">
-                    <img data-tb-uuid="<%= group.first %>" src="<%= asset_path('pb-logo-2.png') %>" class="view-tb">
-                    <h3>Attached cash hives</h3>
-                    <% group.pop.each_with_index do |included_ledger, i| %>
-                       <%= link_to "Cash-Hive #{i}", ledger_path(included_ledger.guid_ledger) %> | 
-                    <% end %>
-                    <div class="dropdown">
-                      <div class="dropdown-container">
-                        <p class="dropdown-description">Download</p>
-                        <p class="dropdown-button">Click to Select</p>
-                        <ul class="dropdown-menu dropdown-select">
-                          <li>Trial Balance</li>
-                          <li>General Ledger</li>
-                        </ul>
-                      </div>
-                    </div>
-              </div>
+                  <div class="trial-balance-option">
+                        <img data-tb-uuid="<%= group.first %>" src="<%= asset_path('pb-logo-2.png') %>" class="view-tb">
+                        <h3>Attached cash hives</h3>
+                        <% group.pop.each_with_index do |included_ledger, i| %>
+                           <%= link_to "Cash-Hive #{i}", ledger_path(included_ledger.guid_ledger) %> | 
+                        <% end %>
+                        <div class="dropdown">
+                          <div class="dropdown-container">
+                            <p class="dropdown-description">Download</p>
+                            <p class="dropdown-button">Click to Select</p>
+                            <ul class="dropdown-menu dropdown-select">
+                              <li>Trial Balance</li>
+                              <li>General Ledger</li>
+                            </ul>
+                          </div>
+                        </div>
+                  </div>
 
+              <% end %>
           <% end %>
-      
+          
 
       </article>
 </section>
