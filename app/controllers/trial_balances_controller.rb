@@ -18,4 +18,10 @@ class TrialBalancesController < ApplicationController
     @data = @user_generated_tbs.select(:tb_uuid, :guid_ledger, :created_at).group_by(&:tb_uuid)
   end
 
+  def view
+    # needs to take params[:tb_uuid] via url
+    # to be something like...
+    # @data = TrialBalance.compile_data(params[:tag])
+  end
+
 end

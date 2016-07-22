@@ -27,7 +27,7 @@
           <% @data.each do |group| %>
 
               <div class="trial-balance-option">
-                    <img src="<%= asset_path('pb-logo-2.png') %>">
+                    <img data-tb-uuid="<%= group.first %>" src="<%= asset_path('pb-logo-2.png') %>" class="view-tb">
                     <h3>Attached cash hives</h3>
                     <% group.pop.each_with_index do |included_ledger, i| %>
                        <%= link_to "Cash-Hive #{i}", ledger_path(included_ledger.guid_ledger) %> | 
@@ -57,9 +57,10 @@
 </section>
 
 
-
 <script>
-    $(document).ready(function() {
+    
+  $(document).ready(function() {
+      
       $(".dropdown-button").click(function() {
         var $button, $menu;
         $button = $(this);
@@ -70,6 +71,16 @@
           $button.html($(this).html());
         });
       });
-    });
+      $('.view-tb').on('click', function() {
+        tb_ID = $(this).data('tb-uuid')
+        url = window.location.href + "/view?tag=" + tb_ID
+        window.location = url
+      });
+
+  });
+
 </script>
+
+
+
 
